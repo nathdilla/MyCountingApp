@@ -17,6 +17,7 @@
             android:id="@+id/goToScrn2Btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Go To Screen 2" />
+            android:onClick="onClickBackBtn"
+            android:text="go back" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
