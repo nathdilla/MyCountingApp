@@ -37,4 +37,12 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/fishy"
         android:layout_weight="4"/>
+
+
+    <Button
+        android:id="@+id/goToScrn2Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goToScrn2"
+        android:text="Go To Screen 2" />
 </LinearLayout>
