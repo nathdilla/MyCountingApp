@@ -32,15 +32,13 @@ public class MainActivity extends AppCompatActivity {
     {
         num1++;
         //Toast.makeText(this, "click 1st button", Toast.LENGTH_SHORT).show();
-        TextView introTextView = (TextView) findViewById(R.id.titleTV);
-        introTextView.setText("Now you have " + num1 + " fishes");
+        updateIntroTV();
+
     }
     public void onClickSecondButton(View v)
     {
         num1--;
-        TextView introTextView = (TextView) findViewById(R.id.titleTV);
-        introTextView.setText("Now you have " + num1 + " fishes");
-        //Toast.makeText(this, "click 2nd button", Toast.LENGTH_SHORT).show();
+        updateIntroTV();
     }
 
     public void goToScrn2(View v)
@@ -57,7 +55,22 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(MainActivity.this, "click 2nd button", Toast.LENGTH_SHORT).show();
                 num1 = 0;
+                updateIntroTV();
             }
         });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void updateIntroTV()
+    {
+        TextView introTextView = (TextView) findViewById(R.id.titleTV);
+        introTextView.setText("Now you have " + num1 + " fishes");
     }
 }

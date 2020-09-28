@@ -31,6 +31,13 @@
         android:layout_weight="1"
         android:text="second button" />
 
+    <Button
+        android:id="@+id/resetCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openDialogue"
+        android:text="Button" />
+
     <ImageView
         android:id="@+id/fishy"
         android:layout_width="match_parent"
