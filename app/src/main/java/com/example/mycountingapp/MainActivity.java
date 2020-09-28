@@ -1,14 +1,19 @@
 package com.example.mycountingapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    int num1 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +30,34 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickFirstButton(View v)
     {
-        Toast.makeText(this, "click 1st button", Toast.LENGTH_SHORT).show();
+        num1++;
+        //Toast.makeText(this, "click 1st button", Toast.LENGTH_SHORT).show();
+        TextView introTextView = (TextView) findViewById(R.id.titleTV);
+        introTextView.setText("Now you have " + num1 + " fishes");
     }
     public void onClickSecondButton(View v)
     {
-        Toast.makeText(this, "click 2nd button", Toast.LENGTH_SHORT).show();
+        num1--;
+        TextView introTextView = (TextView) findViewById(R.id.titleTV);
+        introTextView.setText("Now you have " + num1 + " fishes");
+        //Toast.makeText(this, "click 2nd button", Toast.LENGTH_SHORT).show();
     }
 
     public void goToScrn2(View v)
     {
         startActivity(new Intent(MainActivity.this, Screen2.class));
+    }
+
+    public void openDialogue(View v)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Confirm reset count");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "click 2nd button", Toast.LENGTH_SHORT).show();
+                num1 = 0;
+            }
+        });
     }
 }
